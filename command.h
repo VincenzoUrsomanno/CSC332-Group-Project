@@ -11,7 +11,7 @@
 
 class command{
 public:
-    virtual string execute() = 0;
-}
+    virtual std::string execute() = 0;
+};
 
 #endif /* command_h */

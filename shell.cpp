@@ -7,6 +7,8 @@
 
 #include "shell.h"
 #include "iostream"
+#include "Tree.h"
+#include "memory"
 
 using namespace std;
 
@@ -34,18 +36,20 @@ userstate shell::GetCurrentState(){
 
 string shell::runCommand(){
         switch(currentUserstate){
-            case tree:
-                //put your functions here
-                return "running tree";
-            case list:
+            case userstate::tree:{
+                //smart ptr, we want to build this on heap because we dont always need this.
+                unique_ptr<Tree> treePtr = make_unique<Tree>();
+                return treePtr->execute();
+            }
+            case userstate::list:
                 //put your functions here
                 return "running list";
                 
-            case path:
+            case userstate::path:
                 //put your functions here
                 return "running path";
                 
-            case quit:
+            case userstate::quit:
                 //put your functions here
                 
                 cout << "please press enter to exit shell...";
