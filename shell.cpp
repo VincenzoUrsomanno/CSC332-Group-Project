@@ -9,6 +9,7 @@
 #include "iostream"
 #include "Tree.h"
 #include "memory"
+#include "List.h"
 
 using namespace std;
 
@@ -41,9 +42,11 @@ string shell::runCommand(){
                 unique_ptr<Tree> treePtr = make_unique<Tree>();
                 return treePtr->execute();
             }
-            case userstate::list:
+            case userstate::list:{
                 //put your functions here
-                return "running list";
+                unique_ptr<List> listPtr = make_unique<List>();
+                return listPtr->execute();
+            }
                 
             case userstate::path:
                 //put your functions here
