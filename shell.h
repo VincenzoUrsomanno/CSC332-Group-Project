@@ -12,6 +12,7 @@
 #include "userstate.h"
 #include "map"
 #include <string>
+#include <deque>
 
 using namespace std;
 
@@ -23,10 +24,15 @@ public:
     
     string runCommand();
     
+    void updateRecentCommands(string& input);
+    
+    deque<string> getRecentCommands();
     
 private:
     userstate currentUserstate = userstate::none;
     map<string,userstate> commandMap;
+    deque<string> recentCommands;
+
 
     
 };

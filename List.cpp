@@ -18,9 +18,6 @@ using namespace std;
 
 string List::execute(){
     
-    // Step 1: Clear the terminal screen
-      system("clear");
-
       // Step 2: Open "tree.txt" for writing
       ofstream outFile("tree.txt");
       if (!outFile.is_open()) {

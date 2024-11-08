@@ -11,6 +11,7 @@
 #include "memory"
 #include "List.h"
 #include "Path.h"
+#include "Exit.h"
 
 using namespace std;
 
@@ -29,7 +30,7 @@ string shell::listen(string& input){
        return runCommand();
     }
     
-    return "Command doesn't exist";
+    return "Command doesn't exist"; 
 }
 
 userstate shell::GetCurrentState(){
@@ -44,7 +45,8 @@ string shell::runCommand(){
                 return treePtr->execute();
             }
             case userstate::list:{
-                //put your functions here
+                
+                system("clear");
                 unique_ptr<List> listPtr = make_unique<List>();
                 return listPtr->execute();
             }
@@ -55,16 +57,11 @@ string shell::runCommand(){
                 return pathPtr->execute();
             }
                 
-            case userstate::quit:
-                //put your functions here
-                
-                cout << "please press enter to exit shell...";
-                cin.clear();
-                cin.ignore(INT_MAX,'\n');
-                cin.get();
-                
-                currentUserstate = none;
-                return "We have exit the application";
+            case userstate::quit:{
+                unique_ptr<Exit> exitPtr = make_unique<Exit>();
+                exitPtr->Shell = this;
+                return exitPtr->execute();
+            }
                 
             default:
                 return "invalid command";
@@ -73,3 +70,14 @@ string shell::runCommand(){
 }
 
 
+
+void shell::updateRecentCommands(string& input){
+    if(recentCommands.size() >= 5){
+        recentCommands.pop_front();
+    }
+    recentCommands.push_back(input);
+}
+
+deque<string> shell::getRecentCommands(){
+    return recentCommands;
+}

@@ -36,6 +36,7 @@ int main() {
         else {
             int status;
             waitpid(pid, &status, 0);
+            Shell.updateRecentCommands(input);
         }
         
         cout << endl;
