@@ -24,7 +24,7 @@ shell::shell() {
 
 
 string shell::listen(string& input){
-    
+    //search the map to see if the command exists.
     if(commandMap.find(input) != commandMap.end()){
         currentUserstate = commandMap.find(input)->second;
        return runCommand();
@@ -72,6 +72,7 @@ string shell::runCommand(){
 
 
 void shell::updateRecentCommands(string& input){
+    //if the recentcommand size is >= 5 pop the front the push the new command in
     if(recentCommands.size() >= 5){
         recentCommands.pop_front();
     }
