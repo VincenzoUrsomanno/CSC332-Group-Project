@@ -2,7 +2,7 @@
 //  tree.cpp
 //  CSC332 Group Project
 //
-//  Created by Mathew garcia on 11/6/24.
+//  Created by Dorel Kalev on 11/6/24.
 //
 
 #include <stdio.h>
