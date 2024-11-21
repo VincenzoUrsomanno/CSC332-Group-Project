@@ -1,10 +1,3 @@
-//
-//  path.h
-//  CSC332 Group Project
-//
-//  Created by Mathew garcia on 11/8/24.
-//
-
 // path.h
 //By Arielle Uy 11-7-2024
 
@@ -13,12 +6,12 @@
 
 #include "command.h"
 #include <iostream>
-#include <fstream>
-#include <filesystem>
+#include <fstream> //reading or writing to files
+#include <filesystem> //interacting with filesystem paths, directories, and files.
 
-class Path : public command {
+class Path : public command { //Path class inherits from the command base class
 public:
-    std::string execute() override;
+    std::string execute() override; //Makes the path function unique rather than function as a signature execute command
 };
 
 #endif /* path_h */
