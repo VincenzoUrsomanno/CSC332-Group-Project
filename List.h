@@ -2,7 +2,7 @@
 //  List.h
 //  CSC332 Group Project
 //
-//  Created by Mathew garcia on 11/7/24.
+//  Created by Vincenzo Ursomanno on 11/7/24.
 //
 
 #ifndef List_h
